@@ -26,7 +26,7 @@ function setChromeOptions(builder, options) {
   }
 
   if (options.preferences) {
-    setOptionPreferences(firefoxOptions, options.preferences);
+    setOptionPreferences(chromeOptions, options.preferences);
   }
 
   builder.setChromeOptions(chromeOptions);
@@ -45,12 +45,8 @@ function setEdgeOptions(builder, options) {
 
   const edgeOptions = new seleniumEdge.Options();
 
-  if (options.headless) {
-    edgeOptions.headless();
-  }
-
   if (options.preferences) {
-    setOptionPreferences(firefoxOptions, options.preferences);
+    setOptionPreferences(edgeOptions, options.preferences);
   }
 
   builder.setEdgeOptions(edgeOptions);
@@ -81,7 +77,7 @@ function setFirefoxOptions(builder, options) {
 }
 
 function setIeOptions(builder, options) {
-  const seleniumIe = require('selenium-webdriver/ie');
+  const seleniumIe = require('selenium-webdriver-sway-fork/ie');
 
   if (options.capabilities) {
     builder.withCapabilities(options.capabilities);
@@ -98,7 +94,7 @@ function setIeOptions(builder, options) {
   }
 
   if (options.preferences) {
-    setOptionPreferences(firefoxOptions, options.preferences);
+    setOptionPreferences(ieOptions, options.preferences);
   }
 
   builder.setIeOptions(ieOptions);
@@ -117,12 +113,8 @@ function setSafariOptions(builder, options) {
 
   const safariOptions = new seleniumSafari.Options();
 
-  if (options.headless) {
-    safariOptions.headless();
-  }
-
   if (options.preferences) {
-    setOptionPreferences(firefoxOptions, options.preferences);
+    setOptionPreferences(safariOptions, options.preferences);
   }
 
   builder.setSafariOptions(safariOptions);
